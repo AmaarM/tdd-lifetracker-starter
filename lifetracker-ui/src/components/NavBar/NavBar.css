@@ -1,0 +1,10 @@
+.navbar{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin: 20px;
+    align-items: center;
+    background: linear-gradient(to right, #2c4147, rgba(0,0,0,.7));
+    margin:0px;
+}
+

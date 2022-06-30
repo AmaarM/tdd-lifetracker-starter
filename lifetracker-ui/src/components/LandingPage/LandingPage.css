@@ -1,0 +1,52 @@
+.title,
+.cta {
+  margin: 0;
+}
+
+.landing-page {
+  display: flex;
+  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)),
+    url("../assets/heroImg.jpg");
+  backface-visibility: visible;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.title {
+  font-size: 100px;
+  color: white;
+}
+
+.cta {
+  color: white;
+}
+
+.tiles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 750px;
+  margin: 50px auto 0;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 250px;
+  cursor:pointer;
+  transition: box-shadow .15s;
+}
+
+.tile:hover{
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
