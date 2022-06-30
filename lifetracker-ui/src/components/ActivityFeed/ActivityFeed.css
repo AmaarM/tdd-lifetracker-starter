@@ -1,0 +1,54 @@
+.activity-feed{
+    display: flex;
+    flex-direction: column;
+}
+
+.actNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 900px;
+}
+.activity-title{
+    margin-left: 20px;
+}
+.activity-btns{
+    margin-right: 20px;
+    padding: 10px;
+    border:none;
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity .15s;
+}
+.activity-btns:hover{
+    opacity: .5;
+}
+
+.per-category{
+    width: 900px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.first-row{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.second-row{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.box-1{
+    border-style: solid;
+    border-color: black;
+    border-width: 4px;
+    width: 800px;
+    height: 200px;
+    margin: 20px;
+}

@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React from 'react';
-import apiClient from "../../services/apiClient"
+import apiClient from "../services/apiClient"
+import { useContext } from 'react';
 
 const AuthContext = React.createContext();
 
-export function useContext(){
+export function useAuthContext(){
     return useContext(AuthContext);
 }
 
@@ -56,7 +57,7 @@ export function AuthContextProvider( { children } ){
     }
 
     return (
-        <AuthContext.Provider value={object = {user: [user, setUser], initialized: [initialized, setInitial], processing: [isProcessing, setIsProcessing], error: [error, setError]}}>
+        <AuthContext.Provider value={{user: [user, setUser], initialized: [initialized, setInitial], processing: [isProcessing, setIsProcessing], error: [error, setError]}}>
             {children}
         </AuthContext.Provider>
     )

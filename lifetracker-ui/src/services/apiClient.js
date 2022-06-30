@@ -1,5 +1,5 @@
-const axios = require("axios");
-const { API_BASE_URL } = require("../constants");
+import axios from "axios"
+import constants from "constants";
 
 class apiClient {
     constructor(remoteHostUrl){
@@ -57,4 +57,4 @@ class apiClient {
 } 
 
 
-export default new apiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")
+export default new apiClient()
