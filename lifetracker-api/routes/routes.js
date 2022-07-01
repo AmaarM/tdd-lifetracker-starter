@@ -33,7 +33,7 @@ router.get(("/me"), security.requireAuthenticatedUser, async(req,res,next) => {
         console.log(email);
         const user = await User.fetchUserByEmail(email);
         const publicUser = {id: user.id, email: user.email, first_name: user.first_name, last_name: user.last_name}
-        return res.status(200).json({ user: publicUser })
+        return res.status(200).json({ user: user })
     }
     catch(err){
         next(err);

@@ -10,11 +10,14 @@ import NotFound from "components/NotFound/NotFound";
 import LandingPage from "components/LandingPage/LandingPage";
 import { AuthContextProvider, useAuthContext } from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/auth";
 import { ActivityContextProvider } from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/activity";
+import { NutritionContextProvider } from "/users/amaar/siteprojects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/nutrition";
 
 export default function AppContainer(){
   return (
     <AuthContextProvider>
-      <App />
+      <NutritionContextProvider>
+        <App />
+      </NutritionContextProvider>
     </AuthContextProvider>
   )
 }
@@ -32,7 +35,7 @@ function App() {
                 <Route path="/login" element={<LoginPage />}></Route>
                 <Route path="/register" element={<RegistrationPage />}></Route>
                 <Route path="/activity" element={<ActivityPage />}></Route>
-                <Route path="/nutrition/*" element={<NutritionPage />}></Route>
+                <Route path="/nutrition" element={<NutritionPage />}></Route>
                 <Route path="*" element={<NotFound />}></Route>
                 </Routes>
         </BrowserRouter>

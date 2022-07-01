@@ -3,6 +3,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const { BadRequestError, NotFoundError } = require("./utils/errors");
 const router = require("./routes/routes.js");
+const nutritionRouter = require("./routes/nutrition");
 const security = require("./middleware/security");
 
 
@@ -13,7 +14,8 @@ app.use(express.json());
 app.use(morgan('tiny'));
 app.use(security.extractUserFromJwt);
 
-app.use("/auth", router)
+app.use("/auth", router);
+app.use("/nutrition", nutritionRouter);
 
 
 app.use((req,res,next) => {

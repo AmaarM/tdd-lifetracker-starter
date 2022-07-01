@@ -33,9 +33,11 @@ export function ActivityContextProvider({ children }){
         setInitial(true);
     }
 
+    const activityValue = {activity, setActivity, isLoading, setIsLoading, initialized, setInitial};
+
 
     return (
-        <ActivityContext.Provider value={{activity:[activity, setActivity], initialized:[initialized, setInitial], isLoading:[isLoading,setIsLoading], error: [error,setError]}}>
+        <ActivityContext.Provider value={activityValue}>
             {children}
         </ActivityContext.Provider>
     )

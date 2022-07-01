@@ -67,7 +67,9 @@ const signUpUser = async (data) => {
 
   const logOutUser = () => {
       localStorage.removeItem("lifetracker_token");
-      window.location.reload(false);
+      console.log("hello");
+      location.reload();
+      return false;
   }
 
 

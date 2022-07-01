@@ -62,7 +62,7 @@ class User{
 
         const result = await db.query(
             
-            `INSERT INTO users(
+        `INSERT INTO users(
                 username,
                 password,
                 first_name,
@@ -77,7 +77,6 @@ class User{
         )
 
         const user = result.rows[0];
-        this.latestUser = user;
         return user;
 
     }
