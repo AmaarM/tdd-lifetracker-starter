@@ -11,7 +11,7 @@ export default function NavLinks(props){
                 <Link to="/" className="link">PlaceHolder</Link>
             </div>
             <div className="Buttons">
-                <Link to="/login"><button className="logout-button">Logout</button></Link>
+                <Link to="/login"><button className="logout-button">Login</button></Link>
                 <Link to="/register"><button className="logout-button">Register</button></Link>
             </div>
         </div>

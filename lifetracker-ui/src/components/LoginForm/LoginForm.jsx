@@ -1,13 +1,37 @@
 import "./LoginForm.css";
+import { AuthContextProvider, useAuthContext} from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/auth";
+import React, { useContext } from 'react'
 
 export default function LoginForm(){
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+
+    const { user, setUser, loginUser } = useAuthContext();
+
+    function handleEmailForm(e){
+        setEmail(e.target.value);
+    }
+
+    function handlePasswordForm(e){
+        setPassword(e.target.value);
+    }
+
+    function handleLoginSubmit(){
+        console.log(email);
+        console.log(password);
+        loginUser(email,password);
+        console.log(user);
+    }
+    
     return(
         <div className="login-form">
             <div className="login-form-wrapper">
                 <h1>Email</h1>
-                <input type="email" className="form-input" name="email" value="" onChange={""}></input>
+                <input type="email" className="form-input" name="email" value={email} onChange={handleEmailForm}></input>
                 <h1>Password</h1>
-                <input type="text" className="form-input" name="password" value="" onChange={""}></input>
+                <input type="text" className="form-input" name="password" value={password} onChange={handlePasswordForm}></input>
+                <h1></h1>
+                <button className="submit-login" onClick={handleLoginSubmit}>Submit</button>
             </div>
         </div>
     )
