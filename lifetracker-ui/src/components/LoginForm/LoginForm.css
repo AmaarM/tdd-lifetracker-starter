@@ -25,3 +25,12 @@
       box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);
   }
 
+.logged-in-wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+
+.logged-in{
+    display: flex;
+    flex-direction: column;
+}

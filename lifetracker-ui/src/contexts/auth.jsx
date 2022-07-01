@@ -1,22 +1,23 @@
 import axios from "axios";
 import React, { useContext } from "react";
-import apiClient from "../services/apiClient";
+import apiClient from "/users/amaar/siteprojects/tdd-lifetracker-starter/lifetracker-ui/src/services/apiClient";
 
 const AuthContext = React.createContext(null);
 
 export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = React.useState("");
+  const [user, setUser] = React.useState({});
   const [initialized, setInitial] = React.useState(false);
   const [isProcessing, setIsProcessing] = React.useState(false);
   const [error, setError] = React.useState(null);
 
   React.useEffect(async () => {
-    if (localStorage.getItem("lifetracker_token")) {
-      apiClient.setToken(localStorage.getItem("lifetracker_token"));
+    if(localStorage.getItem("lifetracker_token")){
+      //apiClient.setToken(localStorage.getItem("lifetracker_token"));
     }
     try {
-      const req = await axios.get("http://localhost:3001/auth/me");
-      setUser(req.user);
+      const req = await axios.get("http://localhost:3001/auth/me", {headers: {Authorization: `Bearer ${localStorage.getItem("lifetracker_token")}`}});
+      console.log(req);
+      setUser(req.data.user);
       setError(null);
     } catch (err) {
       setError("error...");
@@ -35,6 +36,7 @@ const loginUser = (email,password) => {
           password: password,
         });
         console.log(getData);
+        localStorage.setItem("lifetracker_token", getData.data.token);
         setUser(getData.data.user);
       } catch (err) {
         console.log(err);
@@ -56,13 +58,21 @@ const signUpUser = async (data) => {
           credentials: obj,
         });
         setUser(getData.data.user);
+        localStorage.setItem("lifetracker_token", getData.data.token);
         console.log(getData);
       } catch (err) {
         console.log(err);
       }
   }
 
-  const authValue = { user, setUser, loginUser, signUpUser };
+  const logOutUser = () => {
+      localStorage.removeItem("lifetracker_token");
+      window.location.reload(false);
+  }
+
+
+
+  const authValue = { user, setUser, loginUser, signUpUser, logOutUser };
 
   return (
     <AuthContext.Provider value={authValue}>

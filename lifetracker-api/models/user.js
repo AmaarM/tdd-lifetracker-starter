@@ -5,12 +5,14 @@ const db = require("../db");
 
 class User{
     static async makePublicUser(user){
-        return{
+        console.log(user.id);
+        const publicUser = {
             id: user.id,
             email: user.email,
             first_name: user.first_name,
-            last_name: user.last_name,
+            last_name: user.last_name
         }
+       return publicUser; 
     }
 
     //function used for login and add to db

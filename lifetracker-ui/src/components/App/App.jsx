@@ -20,6 +20,8 @@ export default function AppContainer(){
 }
 
 function App() {
+  const {user, setUser} = useAuthContext();
+  
   return (
     <div className="app">
       <React.Fragment>

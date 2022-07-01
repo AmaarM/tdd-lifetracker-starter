@@ -4,9 +4,14 @@ import TilesIcon1 from "../assets/tiles-icon1.svg"
 import TilesIcon2 from "../assets/tiles-icon2.svg"
 import TilesIcon3 from "../assets/tiles-icon3.svg"
 import TilesIcon4 from "../assets/tiles-icon4.svg"
+import { AuthContextProvider, useAuthContext} from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/auth";
 
 
 export default function LandingPage(props) {
+  const {user} = useAuthContext();
+  console.log(user);
+
+
   return (
     <div className="landing-page">
       <div className="hero">
