@@ -1,12 +1,13 @@
 import "./LoginForm.css";
 import { AuthContextProvider, useAuthContext} from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/auth";
+import { Navigate } from "react-router-dom";
 import React from "react";
 
 export default function LoginForm(){
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
 
-    const { user, setUser, loginUser } = useAuthContext();
+    const { user, setUser, loginUser, error } = useAuthContext();
 
 
     console.log(user);
@@ -24,15 +25,12 @@ export default function LoginForm(){
         loginUser(email,password);
         console.log(user);
     }
+    console.log(error);
 
     if(user.id > 0) {
         return (
             <div className="logged-in-wrapper">
-                <div className="logged-in">
-                    <h1 className="error-msg">You're Already Logged In</h1>
-                    <button className="go-toActivity">Activity</button>
-                    <button className="go-toActivity">Nutrition</button>
-                </div>
+                {<Navigate to="/"/>}
             </div>
         )
     }
@@ -46,6 +44,7 @@ export default function LoginForm(){
                     <input type="text" className="form-input" name="password" value={password} onChange={handlePasswordForm}></input>
                     <h1></h1>
                     <button className="submit-login" onClick={handleLoginSubmit}>Submit</button>
+                    <h2 className={error.length > 0 ? "error-login" : "hidden"}>Wrong Password, Try Again...</h2>
                 </div>
             </div>
         )

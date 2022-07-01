@@ -11,6 +11,7 @@ import LandingPage from "components/LandingPage/LandingPage";
 import { AuthContextProvider, useAuthContext } from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/auth";
 import { ActivityContextProvider } from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/activity";
 import { NutritionContextProvider } from "/users/amaar/siteprojects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/nutrition";
+import NutritionForm from "components/NutritionForm/NutritionForm";
 
 export default function AppContainer(){
   return (
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/register" element={<RegistrationPage />}></Route>
                 <Route path="/activity" element={<ActivityPage />}></Route>
                 <Route path="/nutrition" element={<NutritionPage />}></Route>
+                <Route path="/nutrition/form" element={<NutritionForm />}></Route>
                 <Route path="*" element={<NotFound />}></Route>
                 </Routes>
         </BrowserRouter>

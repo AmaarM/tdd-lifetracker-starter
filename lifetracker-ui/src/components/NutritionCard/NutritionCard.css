@@ -1,0 +1,16 @@
+.nutrition-card{
+    display: flex;
+    justify-content: row;
+    flex-wrap: wrap;
+    margin:30px
+}
+
+.card-wrapper{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    padding: 10px;
+}
