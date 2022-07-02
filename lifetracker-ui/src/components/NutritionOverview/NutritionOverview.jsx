@@ -1,12 +1,11 @@
 import "./NutritionOverview.css";
 import { AuthContextProvider ,useAuthContext } from "/users/amaar/siteprojects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/auth";
 import { NutritionContextProvider, useNutritionContext } from "/users/amaar/siteprojects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/nutrition";
-import { Link } from "react-router-dom";
 import NutritionFeed from "components/NutritionFeed/NutritionFeed";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 export default function NutritionOverview(){
-    const { nutrition, error, isInitialized, isProcessing } = useNutritionContext();
+    const { nutrition, error, isInitialized, isProcessing, logNutrition } = useNutritionContext();
 
     
     if(error){
@@ -20,10 +19,13 @@ export default function NutritionOverview(){
             <h1 className="overview-title">Nutrition</h1>
             <div className="nutrition-wrapper">
                 <h2 className="nutrition-title">Overview</h2>
-                <button className="create-Nutrition" onClick={() => <Navigate to="/"/>}>Record Nutrition</button>
+                <Link to="/nutrition/create"><button className="create-Nutrition">Record Nutrition</button></Link>
             </div>
-            <NutritionFeed/>
+            <NutritionFeed />
         </div>
     )
 
 }
+
+
+//onClick={() => <Navigate to="/"/>}

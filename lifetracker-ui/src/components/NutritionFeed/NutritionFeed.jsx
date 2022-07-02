@@ -18,7 +18,7 @@ export default function NutritionFeed(){
     return (
         <div className="nutrition-feed">
             {arr.map((e,idx) => (
-                <NutritionCard calories={e.calories} category={e.category} imageUrl={e.image_url} createdAt={e.created_at}/>
+                <NutritionCard calories={e.calories} category={e.category} imageUrl={e.image_url} createdAt={e.created_at} name={e.name}/>
             ))}
         </div>  
     )

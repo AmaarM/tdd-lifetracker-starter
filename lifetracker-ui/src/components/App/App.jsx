@@ -12,6 +12,7 @@ import { AuthContextProvider, useAuthContext } from "/Users/amaar/siteProjects/t
 import { ActivityContextProvider } from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/activity";
 import { NutritionContextProvider } from "/users/amaar/siteprojects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/nutrition";
 import NutritionForm from "components/NutritionForm/NutritionForm";
+import NutritionNew from "components/NutritionNew/NutritionNew";
 
 export default function AppContainer(){
   return (
@@ -37,7 +38,7 @@ function App() {
                 <Route path="/register" element={<RegistrationPage />}></Route>
                 <Route path="/activity" element={<ActivityPage />}></Route>
                 <Route path="/nutrition" element={<NutritionPage />}></Route>
-                <Route path="/nutrition/form" element={<NutritionForm />}></Route>
+                <Route path="/nutrition/create" element={<NutritionNew />}></Route>
                 <Route path="*" element={<NotFound />}></Route>
                 </Routes>
         </BrowserRouter>

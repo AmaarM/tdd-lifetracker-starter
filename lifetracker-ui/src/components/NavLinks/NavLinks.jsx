@@ -5,14 +5,14 @@ import { AuthContextProvider, useAuthContext} from "/Users/amaar/siteProjects/td
 export default function NavLinks(props){
 
     const { user, logOutUser } = useAuthContext();
-    
+
     if(user.id > 0){
         let capitalizedName = user.first_name.trim().toLowerCase().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
         return(
             <div className="nav-links">
                 <div className="Links">
                     <Link to="/activity" className="link">Activity</Link>
-                    <Link to="/nutrition" className="link">Nutrition</Link>
+                    <a href="/nutrition" className="link">Nutrition</a>
                     <Link to="/" className="link">PlaceHolder</Link>
                     <Link to="/" className="link">PlaceHolder</Link>
                 </div>
@@ -27,10 +27,10 @@ export default function NavLinks(props){
         return (
             <div className="nav-links">
                 <div className="Links">
-                    <Link to="/activity" className="link">Activity</Link>
-                    <Link to="/nutrition" className="link">Nutrition</Link>
-                    <Link to="/" className="link">PlaceHolder</Link>
-                    <Link to="/" className="link">PlaceHolder</Link>
+                    <Link to="/NotFound" className="link">Activity</Link>
+                    <Link to="/NotFound" className="link">Nutrition</Link>
+                    <Link to="/NotFound" className="link">PlaceHolder</Link>
+                    <Link to="/NotFound" className="link">PlaceHolder</Link>
                 </div>
                 <div className="Buttons">
                     <Link to="/login"><button className={Object.keys(user) > 0 ? "hidden" : "logout-button"}>Login</button></Link>

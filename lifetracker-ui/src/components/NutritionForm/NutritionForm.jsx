@@ -1,30 +1,61 @@
 import "./NutritionForm.css"
+import { AuthContextProvider, useAuthContext} from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/auth";
+import { Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import { NutritionContextProvider, useNutritionContext } from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/nutrition";
+import { Link } from "react-router-dom";
 
-export default function NutritionForm(){
+
+export default function NutritionForm(props){
+  const [calories, setCalories] = useState("");
+  const [category, setCategory] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [name, setName] = useState("");
+
+  const { user } = useAuthContext(); 
+
+
+  function setParams(e){
+    if(e.target.name === "name"){
+      setName(e.target.value);
+    }
+    if(e.target.name === "category"){
+      setCategory(e.target.value);
+    }
+    if(e.target.name === "calories"){
+      setCalories(e.target.value);
+    }
+    if(e.target.name === "imageUrl"){
+      setImageUrl(e.target.value);
+    }
+  }
+
+  function handleOnSubmit(){
+    let obj = {name:name, category:category, calories:calories, imageUrl:imageUrl, email:user.email}
+    props.logNutrition(obj)
+  }
+
     return (
-        <div className="registration-form">
-        <div className="input-field">
-          <h4 className="title1">Email</h4>
-          <input className="form-input" name="email" type="email" value={email} onChange={setParams}></input>
-        </div>
-        <div className="input-field">
-          <h4 className="title1">Username</h4>
-          <input className="form-input" name="username" type="text" value={userName} onChange={setParams}></input>
-        </div>
+      <div className="nutrition-form">
+      <div className="input-field">
         <h4 className="title1">Name</h4>
-        <div className="split input-field">
-          <input className="form-input-name" name="firstName" type="text" placeholder="First Name" value={firstName} onChange={setParams}></input>
-          <input className="form-input-name" name="lastName" type="text" placeholder="Last Name" value={lastName} onChange={setParams}></input>
-        </div>
-        <div className="input-field">
-          <h4 className="title1">Password</h4>
-          <input className="form-input" name="password" type="text" value={password} onChange={setParams}></input>
-        </div>
-        <div className="input-field">
-          <h4 className="title1">Confirm Password</h4>
-          <input className="form-input" name="passwordConfirm" type="text" onChange={setParams}></input>
-        </div>
-        <button onClick={handleOnRegisterSubmit}>Register</button>
+        <input className="form-input" name="name" type="name" value={name} onChange={setParams}></input>
       </div>
+      <div className="input-field">
+        <h4 className="title1">Category</h4>
+        <input className="form-input" name="category" type="text" value={category} onChange={setParams}></input>
+      </div>
+      <div className="input-field">
+        <h4 className="title1">Calories</h4>
+        <input className="form-input" name="calories" type="text" value={calories} onChange={setParams}></input>
+      </div>
+      <div className="input-field">
+        <h4 className="title1">Image</h4>
+        <input className="form-input" name="imageUrl" type="text" value={imageUrl} onChange={setParams}></input>
+      </div>
+      <div className="register-button">
+        <Link to="/nutrition"> <button onClick={handleOnSubmit} className="register">Register</button> </Link>
+      </div>
+    </div>
     )
 }

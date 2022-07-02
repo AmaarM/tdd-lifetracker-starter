@@ -20,10 +20,7 @@ export default function LoginForm(){
     }
 
     function handleLoginSubmit(){
-        console.log(email);
-        console.log(password);
         loginUser(email,password);
-        console.log(user);
     }
     console.log(error);
 
