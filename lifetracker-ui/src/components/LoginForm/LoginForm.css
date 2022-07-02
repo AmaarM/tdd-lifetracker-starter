@@ -40,3 +40,20 @@
 }
 
 
+.submit-login{
+    padding: 12px 25px;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: normal;
+    transition: border-style .15s, box-shadow .15s, background-color .15s;
+}
+
+.submit-login:hover{
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+

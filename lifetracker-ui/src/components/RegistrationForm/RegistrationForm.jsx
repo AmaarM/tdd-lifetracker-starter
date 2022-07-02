@@ -58,7 +58,7 @@ export default function RegistrationForm() {
         <h4 className="title1">Confirm Password</h4>
         <input className="form-input" name="passwordConfirm" type="text" onChange={setParams}></input>
       </div>
-      <button onClick={handleOnRegisterSubmit}>Register</button>
+      <button onClick={handleOnRegisterSubmit} className="register-login">Register</button>
     </div>
   );
 }
