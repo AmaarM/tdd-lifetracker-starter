@@ -1,21 +1,21 @@
 import axios from "axios"
-
-
-class apiClient {
+ 
+class ApiClient {
     constructor(remoteHostUrl){
         this.remoteHostUrl = remoteHostUrl;
         this.token = null;
+        this.tokenName = "lifetracker_token"
     }
 
-
     //Sets the token
-    static setToken(token){
+    setToken(token){
         this.token = token;
+        localStorage.setItem(this.tokenName, token);
     }
 
 
     //Issues axios requests
-    static async request({endpoint, method = "GET", data = {}}){
+    async request({endpoint, method = "GET", data = {}}){
         const url = `${this.remoteHostUrl}/${endpoint}`
 
         const headers = {
@@ -31,30 +31,31 @@ class apiClient {
             return {data: request.data, error:null};
         }
         catch(err){
-            console.log(err);
+            console.log(err)
             return {data:null, error:err};
         }
     }
 
+    async fetchUserFromToken(){
+        return await this.request({ endpoint: `auth/me`, method: `GET` })
+    }
+
     //Sends a request to Auth/Login
-    static async login(loginData){
-        return await this.request({endpoint: 'auth/login', method:'POST', data:loginData})
+     async login(loginData){
+        return await this.request({endpoint: `auth/login`, method:`POST`, data:loginData})
     }
 
-    static async signup(){
-        return await this.request({endpoint: 'auth/register', method:'POST', data:loginData})
+   async signup(loginData){
+    console.log(loginData);    
+    return await this.request({endpoint: `auth/register`, method:`POST`, data:loginData})
     }
 
-    static async fetchUserFromToken(){
-        try {
-            const request = await this.request("http://localhost:3001/auth/me")
-            return request.data;
-        }
-        catch(err){
-            return err;
-        }
+    logoutUser(){
+        localStorage.removeItem("lifetracker_token");
+        window.location.reload();
+        return false;
     }
 } 
 
 
-export default new apiClient("https://localhost:3001");
+export default new ApiClient("http://localhost:3001");

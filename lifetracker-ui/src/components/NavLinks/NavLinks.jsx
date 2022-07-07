@@ -11,19 +11,19 @@ export default function NavLinks(props){
         return(
             <div className="nav-links">
                 <div className="Links">
-                    <Link to="/activity" className="link">Activity</Link>
+                    <a href="/activity" className="link">Activity</a>
                     <a href="/nutrition" className="link">Nutrition</a>
                     <Link to="/" className="link">PlaceHolder</Link>
                     <Link to="/" className="link">PlaceHolder</Link>
                 </div>
                 <div className="Buttons-logged-in">
                     <h1 className="hello" >Hello {capitalizedName}</h1>
-                    <Link to="/"><button className="logout-button" onClick={logOutUser}>Log Out</button></Link>
+                    <a href="/"><button className="logout-button" onClick={logOutUser}>Log Out</button></a>
                 </div>
             </div>
         )
     }
-    else{
+    else {
         return (
             <div className="nav-links">
                 <div className="Links">
