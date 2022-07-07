@@ -8,7 +8,6 @@ import { useParams } from 'react-router-dom';
 
 const NutritionContext = createContext(null);
 
-
 export const NutritionContextProvider = ({ children }) => {
     const [nutrition, setNutrition] = useState([]);
     const [initialized, setInitial] = React.useState(false);
@@ -58,8 +57,6 @@ export const NutritionContextProvider = ({ children }) => {
         req();
 
     };
-
-
 
     const nutritionValue = { nutrition, isProcessing, initialized, error, logNutrition }
     

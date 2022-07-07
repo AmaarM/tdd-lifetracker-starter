@@ -10,7 +10,7 @@ import NotFound from "components/NotFound/NotFound";
 import LandingPage from "components/LandingPage/LandingPage";
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
 import { ActivityContextProvider } from "../../contexts/activity";
-import { NutritionContextProvider } from "/users/amaar/siteprojects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/nutrition";
+import { NutritionContextProvider } from "../../contexts/nutrition"
 import NutritionForm from "components/NutritionForm/NutritionForm";
 import NutritionNew from "components/NutritionNew/NutritionNew";
 

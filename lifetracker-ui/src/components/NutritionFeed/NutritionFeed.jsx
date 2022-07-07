@@ -1,12 +1,11 @@
 import "./NutritionFeed.css"
-import { AuthContextProvider ,useAuthContext } from "../../contexts/auth";
-import { NutritionContextProvider, useNutritionContext } from "../../contexts/nutrition";
+
 import NutritionCard from "components/NutritionCard/NutritionCard";
 
-export default function NutritionFeed(){
-    const { nutrition } = useNutritionContext();
-
-    if(Object.keys(nutrition) <= 0){
+export default function NutritionFeed(props){
+      //const { nutrition } = useNutritionContext();
+    console.log(props.nutrition);
+     if(Object.keys(props.nutrition) <= 0){
         return (
         <div className="nutrition-feed">
             <h1>Nothing Here Yet</h1>
@@ -14,7 +13,7 @@ export default function NutritionFeed(){
         )
     }
     else{
-        const arr = nutrition.nutrition;
+        const arr = props.nutrition.nutrition;
     return (
         <div className="nutrition-feed">
             {arr.map((e,idx) => (
@@ -22,5 +21,7 @@ export default function NutritionFeed(){
             ))}
         </div>  
     )
-}
+}  
+
+return(<div>ehehe</div>)
 }
