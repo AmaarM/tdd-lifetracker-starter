@@ -1,6 +1,6 @@
 import "./NutritionOverview.css";
-import { AuthContextProvider ,useAuthContext } from "/users/amaar/siteprojects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/auth";
-import { NutritionContextProvider, useNutritionContext } from "/users/amaar/siteprojects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/nutrition";
+import { AuthContextProvider ,useAuthContext } from "../../contexts/auth";
+import { NutritionContextProvider, useNutritionContext } from "../../contexts/nutrition";
 import NutritionFeed from "components/NutritionFeed/NutritionFeed";
 import { Navigate, Link } from "react-router-dom";
 

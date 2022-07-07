@@ -1,5 +1,5 @@
 import "./ActivityPage.css";
-import { ActivityContextProvider, useActivityContext } from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/activity";
+import { ActivityContextProvider, useActivityContext } from "../../contexts/activity"
 import Loading from "components/Loading/Loading";
 import ActivityFeed from "components/ActivityFeed/ActivityFeed";
 

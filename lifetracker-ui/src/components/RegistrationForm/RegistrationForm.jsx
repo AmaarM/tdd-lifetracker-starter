@@ -1,6 +1,6 @@
 import "./RegistrationForm.css"
 import { useState, useContext } from "react";
-import { AuthContextProvider, useAuthContext } from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/auth";
+import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
 import { Navigate } from "react-router-dom"
 
 export default function RegistrationForm() {

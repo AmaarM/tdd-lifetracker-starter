@@ -1,4 +1,4 @@
-import { NutritionContextProvider, useNutritionContext } from "/users/amaar/siteprojects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/nutrition"
+import { NutritionContextProvider, useNutritionContext } from "../../contexts/nutrition";
 import NutritionForm from "components/NutritionForm/NutritionForm";
 
 

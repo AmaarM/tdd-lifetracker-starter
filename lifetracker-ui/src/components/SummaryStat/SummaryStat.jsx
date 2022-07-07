@@ -1,4 +1,4 @@
-
+import "./SummaryStat.css";
 
 export default function SummaryState(props){
     return (

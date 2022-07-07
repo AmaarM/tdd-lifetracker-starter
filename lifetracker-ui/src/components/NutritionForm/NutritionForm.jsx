@@ -1,8 +1,8 @@
 import "./NutritionForm.css"
-import { AuthContextProvider, useAuthContext} from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/auth";
+import { AuthContextProvider, useAuthContext} from "../../contexts/auth";
 import { Navigate } from "react-router-dom";
 import React, { useState } from "react";
-import { NutritionContextProvider, useNutritionContext } from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/nutrition";
+import { NutritionContextProvider, useNutritionContext } from "../../contexts/nutrition";
 import { Link } from "react-router-dom";
 
 
