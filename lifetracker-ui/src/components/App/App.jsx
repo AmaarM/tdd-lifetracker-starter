@@ -17,9 +17,13 @@ import NutritionNew from "components/NutritionNew/NutritionNew";
 export default function AppContainer(){
   return (
     <AuthContextProvider>
-      <NutritionContextProvider>
-        <App />
-      </NutritionContextProvider>
+      <ActivityContextProvider>
+        <NutritionContextProvider>
+        
+          <App />
+        
+        </NutritionContextProvider>
+      </ActivityContextProvider>
     </AuthContextProvider>
   )
 }

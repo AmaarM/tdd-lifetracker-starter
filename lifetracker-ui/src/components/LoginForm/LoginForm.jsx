@@ -24,13 +24,13 @@ export default function LoginForm(){
     }
     console.log(error);
 
-    if(user.id > 0) {
-        return (
-            <div className="logged-in-wrapper">
-                {<Navigate to="/"/>}
-            </div>
-        )
-    }
+ if(user.id > 0) {
+    return (
+        <div className="logged-in-wrapper">
+            {<Navigate to="/activity"/>}
+        </div>
+    )
+} 
     else{
         return(
             <div className="login-form">

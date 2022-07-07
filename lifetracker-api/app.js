@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const { BadRequestError, NotFoundError } = require("./utils/errors");
 const router = require("./routes/routes.js");
 const nutritionRouter = require("./routes/nutrition");
+const activityRouter = require("./routes/activity");
 const security = require("./middleware/security");
 
 
@@ -16,6 +17,7 @@ app.use(security.extractUserFromJwt);
 
 app.use("/auth", router);
 app.use("/nutrition", nutritionRouter);
+app.use("/activity", activityRouter);
 
 
 app.use((req,res,next) => {

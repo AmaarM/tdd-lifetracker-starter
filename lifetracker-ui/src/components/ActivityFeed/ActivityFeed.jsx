@@ -1,7 +1,14 @@
-import "./ActivityFeed.css"
-import SummaryStat from "components/SummaryStat/SummaryStat"
+import "./ActivityFeed.css";
+import SummaryStat from "components/SummaryStat/SummaryStat";
+import { useActivityContext } from "../../contexts/activity";
+import { Link } from "react-router-dom";
+import Loading from "components/Loading/Loading"
+import { useEffect, useState } from "react";
 
 export default function ActivityFeed(props){
+    const { activity, isLoading } = useActivityContext();
+
+if(Object.keys(activity).length > 0){
     return (
         <div className="activity-feed">
             <div className="actNav">
@@ -11,33 +18,41 @@ export default function ActivityFeed(props){
                 <div className="activity-nav-btns">
                     <button className="activity-btns">Add Exercise</button>
                     <button className="activity-btns">Log Sleep</button>
-                    <button className="activity-btns">Record Nutrition</button>
+                    <Link to="/nutrition/create"><button className="activity-btns">Record Nutrition</button></Link>
                 </div>
             </div>
             <div className="per-category">
                 <div className="first-row">
                     <div className="box-1">
-                        <SummaryStat/>
+                        <SummaryStat totalCalories={activity.totalPerDay} string={"TotalCalories"}/>
                     </div>
                     <div className="box-1">
-                        <SummaryStat/>
+                        <SummaryStat />
                     </div>
                     <div className="box-1">
-                        <SummaryStat/>
+                        <SummaryStat />
                     </div>      
                 </div>
                 <div className="second-row">
                     <div className="box-1">
-                        <SummaryStat/>
+                        <SummaryStat />
                     </div>
                     <div className="box-1">
-                        <SummaryStat/>
+                        <SummaryStat />
                     </div>
                     <div className="box-1">
-                        <SummaryStat/>
+                        <SummaryStat />
                     </div>     
                 </div>
             </div>
         </div>
     )
+}
+else{
+   return(
+    <div>
+        <Loading />
+    </div>
+   )
+} 
 }

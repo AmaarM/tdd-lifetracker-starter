@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import apiClient from "/users/amaar/siteprojects/tdd-lifetracker-starter/lifetracker-ui/src/services/apiClient";
+import { Navigate } from "react-router-dom";
 
 const AuthContext = React.createContext(null);
 
@@ -44,6 +45,7 @@ const loginUser = (email,password) => {
       }
     };
     req();
+
   }
 
 const signUpUser = async (data) => {

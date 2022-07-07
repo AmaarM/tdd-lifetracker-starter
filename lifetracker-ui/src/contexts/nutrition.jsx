@@ -52,10 +52,8 @@ export const NutritionContextProvider = ({ children }) => {
             catch(err){
                 console.log(err);
             }
-        
         }
         req();
-
     };
 
     const nutritionValue = { nutrition, isProcessing, initialized, error, logNutrition }

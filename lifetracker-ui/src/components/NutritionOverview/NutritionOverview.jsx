@@ -7,6 +7,7 @@ import { Navigate, Link } from "react-router-dom";
 export default function NutritionOverview(){
     const { nutrition, error, isInitialized, isProcessing, logNutrition } = useNutritionContext();
     console.log(nutrition);
+    
     if(error){
         return (
             <h2 className="error">Error...</h2>

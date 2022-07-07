@@ -11,8 +11,8 @@ export default function NavLinks(props){
         return(
             <div className="nav-links">
                 <div className="Links">
-                    <a href="/activity" className="link">Activity</a>
-                    <a href="/nutrition" className="link">Nutrition</a>
+                    <Link to="/activity" className="link">Activity</Link>
+                    <Link to="/nutrition" className="link">Nutrition</Link>
                     <Link to="/" className="link">PlaceHolder</Link>
                     <Link to="/" className="link">PlaceHolder</Link>
                 </div>
