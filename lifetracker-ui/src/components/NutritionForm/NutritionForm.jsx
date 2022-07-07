@@ -13,6 +13,7 @@ export default function NutritionForm(props){
   const [name, setName] = useState("");
 
   const { user } = useAuthContext(); 
+  
 
 
   function setParams(e){
@@ -54,7 +55,7 @@ export default function NutritionForm(props){
         <input className="form-input" name="imageUrl" type="text" value={imageUrl} onChange={setParams}></input>
       </div>
       <div className="register-button">
-        <Link to="/nutrition"> <button onClick={handleOnSubmit} className="register">Register</button> </Link>
+        <Link to="/nutrition"> <button onClick={handleOnSubmit} className="register">Submit</button> </Link>
       </div>
     </div>
     )

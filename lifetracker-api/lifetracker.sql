@@ -1,5 +1,5 @@
 
-\echo "Delete and recreate vaccine hub database"
+\echo "Delete and recreate lifetracker database"
 \prompt "Return for yes or control-C to cancel " answer
 
 DROP DATABASE lifetracker;
