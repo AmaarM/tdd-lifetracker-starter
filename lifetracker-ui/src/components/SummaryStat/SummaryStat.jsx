@@ -29,7 +29,7 @@ if(props.string === "TotalDuration" && props.totalDuration.length > 0){
     <div className="summary-stat">
         <h3 className="stat-label">Total Duration Per Category</h3>
         <h3 className="primary-statistic">Category: {capitalizedName}</h3>
-        <h3 className="secondary-statistic">{props.totalDuration[randomNum].totalDurationPerCategory} Minutes</h3>
+        <h3 className="secondary-statistic">{props.totalDuration[randomNum].totalDurationPerCategory.toFixed(2)} Minutes</h3>
     </div>
   )
 }
@@ -41,7 +41,7 @@ if(props.string === "AvgPerCategory" && props.avgDuration.length > 0){
     <div className="summary-stat">
         <h3 className="stat-label">Average Duration Per Category</h3>
         <h3 className="primary-statistic">Category: {capitalizedName}</h3>
-        <h3 className="secondary-statistic">{props.avgDuration[randomNum].avgDurationPerCategory} Minutes</h3>
+        <h3 className="secondary-statistic">{props.avgDuration[randomNum].avgDurationPerCategory.toFixed(2)} Minutes</h3>
     </div>
   )
 }

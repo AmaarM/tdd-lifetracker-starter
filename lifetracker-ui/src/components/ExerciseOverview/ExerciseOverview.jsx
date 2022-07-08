@@ -12,7 +12,7 @@ export default function ExerciseOverview(){
             <div className="exercise-overview">
                 <div className="exerciseForm-nav">
                     <h1 className="exercises-navbar">Exercises</h1>
-                    <Link to="/exercise/create"><button className="activity-btns">Record Nutrition</button></Link>
+                    <Link to="/exercise/create"><button className="activity-btns">Record Exercises</button></Link>
                 </div>
                 <div className="exercises-feed">
                     {exercises.map((e,idx) => (
