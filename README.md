@@ -9,6 +9,7 @@ Everywhere around us is data waiting to be collected and utilized. In recent yea
 This application will be built using the battle-tested PERN stack - PostgreSQL, Express, React, and Node.
 
 Week 1 of Project GIF: https://streamable.com/nudz0v
+Week 2 of Project GIF: https://streamable.com/jk4n8z
 
 ## Goals
 
@@ -209,7 +210,7 @@ The components in the `App.jsx` file should render the following components (alo
     - [X] The component should validate the `email` field:
       - [X] If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the `className` of `error` indicating that the entry is not a valid email.
     - [] The component should gracefully handle errors:
-      - [] If the user has attempted to login and gotten a `401` error, then an error message should be displayed in an element with the `className` of `error` indicating that the `email` and `password` combination is incorrect.
+      - [X] If the user has attempted to login and gotten a `401` error, then an error message should be displayed in an element with the `className` of `error` indicating that the `email` and `password` combination is incorrect.
       - [] If the user has attempted to login and gotten a `400` or `422` error, then an error message should be displayed in an element with the `className` of `error` indicating what went wrong.
     - [X] There should be a `button` element with the `className` of `submit-login`:
       - [X] It should contain the text `"Login"`
@@ -428,13 +429,13 @@ The components in the `App.jsx` file should render the following components (alo
 
     - [ ] Choose whatever resources you want!
 
-  - [ ] The **`ProtectedRoute.jsx`** component:
-    - [ ] Create a `ProtectedRoute.jsx` component that uses the `useAuthContext` hook to get access to the `initialized` and `user` variables.
-    - [ ] It should accept a component as the `element` prop and render that component.
-    - [ ] If the application isn't currently loading and no user is found, it should render the `LoginPage.jsx` component instead of rendering the route the user intended to go to. This way, we can ensure that only authenticated users can access the provided component.
-    - [ ] Any unauthenticated user should be shown the `LoginPage.jsx` component with a message indicating that they need to authenticate first
-    - [ ] Update the `LoginPage.jsx` component so that it accepts a `message` prop that is displayed in the login form - if it exists.
-    - [ ] Make sure to protect the entire `ActivityPage` component route and the `NutritionPage` component route (along with any other private resource pages). Don't protect the `LandingPage` component or the `LoginPage` and `RegistrationPage` components, as they should be public.
+  - [X] The **`ProtectedRoute.jsx`** component:
+    - [X] Create a `ProtectedRoute.jsx` component that uses the `useAuthContext` hook to get access to the `initialized` and `user` variables.
+    - [X] It should accept a component as the `element` prop and render that component.
+    - [X] If the application isn't currently loading and no user is found, it should render the `LoginPage.jsx` component instead of rendering the route the user intended to go to. This way, we can ensure that only authenticated users can access the provided component.
+    - [X] Any unauthenticated user should be shown the `LoginPage.jsx` component with a message indicating that they need to authenticate first
+    - [X] Update the `LoginPage.jsx` component so that it accepts a `message` prop that is displayed in the login form - if it exists.
+    - [X] Make sure to protect the entire `ActivityPage` component route and the `NutritionPage` component route (along with any other private resource pages). Don't protect the `LandingPage` component or the `LoginPage` and `RegistrationPage` components, as they should be public.
 
 ### API
 
@@ -684,22 +685,22 @@ Here are the pieces of functionality that should be built out for the backend:
     - [X] In the `models/nutrition.js` file:
       - [X] Implement the features outlined in the tests until they're all passing
     - [X] Commit all work to `git`
-  - [ ] The **permissions** middleware
-    - [ ] In the `middleware` directory, create two new files: `middleware/permissions.js` and `middleware/permissions.test.js`
-      - [ ] Though more functions will need to be added here as the number of resources grows, for now only 1 function needs to be created.
-      - [ ] The `authedUserOwnsNutrition` middleware function should:
-        - [ ] Probably be called after the `requireAuthenticatedUser` security middleware in any route's middleware pipeline
-        - [ ] Extract a parameter from the request endpoint that corresponds to the `id` of the nutrition instance
-        - [ ] Query the database for that nutrition instance
-        - [ ] Check that it is owned by the authenticated user
-          - [ ] If it doesn't, it should throw a `ForbiddenError` (`403` status code)
-          - [ ] If the nutrition instance does belong to the authed user, it should attach it to the `locals` property of the `response` as its `nutrition` property so that it doesn't need to be fetched again by the database (this isn't required, but is probably a good idea).
-    - [ ] In the `middleware/permissions.test.js` file:
-      - [ ] Test the `authedUserOwnsNutrition` middleware function
-        - [ ] Write test cases for:
-          - [ ] Throws error if authed user doesn't own nutrition
-          - [ ] Throws `NotFoundError` if `id` of nutrition isn't found in database
-          - [ ] Doesn't throw error if authed user is nutrition owner
+  - [X] The **permissions** middleware
+    - [X] In the `middleware` directory, create two new files: `middleware/permissions.js` and `middleware/permissions.test.js`
+      - [X] Though more functions will need to be added here as the number of resources grows, for now only 1 function needs to be created.
+      - [X] The `authedUserOwnsNutrition` middleware function should:
+        - [X] Probably be called after the `requireAuthenticatedUser` security middleware in any route's middleware pipeline
+        - [X] Extract a parameter from the request endpoint that corresponds to the `id` of the nutrition instance
+        - [X] Query the database for that nutrition instance
+        - [X] Check that it is owned by the authenticated user
+          - [X] If it doesn't, it should throw a `ForbiddenError` (`403` status code)
+          - [X] If the nutrition instance does belong to the authed user, it should attach it to the `locals` property of the `response` as its `nutrition` property so that it doesn't need to be fetched again by the database (this isn't required, but is probably a good idea).
+    - [X] In the `middleware/permissions.test.js` file:
+      - [X] Test the `authedUserOwnsNutrition` middleware function
+        - [X] Write test cases for:
+          - [X] Throws error if authed user doesn't own nutrition
+          - [X] Throws `NotFoundError` if `id` of nutrition isn't found in database
+          - [X] Doesn't throw error if authed user is nutrition owner
           - [ ] (OPTIONAL) Attaches the `nutrition` to the `locals` property of the response when the user owns the nutrition instance
     - [ ] In the `middleware/permissions.js` file:
       - [ ] Implement the features outlined in the tests until they're all passing
@@ -736,8 +737,8 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
   - [ ] Commit all work to `git`
 - **Additional Resources**
-  - [ ] Create model and routes files for 1-2 additional resources that your app will track (sleep, exercise, steps, floors climbed, meditation, mood, heartrate, music practice, etc)
-  - [ ] Commit all work to `git`
+  - [X] Create model and routes files for 1-2 additional resources that your app will track (sleep, exercise, steps, floors climbed, meditation, mood, heartrate, music practice, etc)
+  - [X] Commit all work to `git`
 - **Summary Statistics**
   - [X] One of the last features of the API will be a model that calculates summary statistic on the different resources that users are tracking. This includes statistics like average calories per day, or max calories per category. To do that, we'll create a new `Activity` model and an `activity` route that will be used to populate the frontend.
   - [X] The **Activity** model
