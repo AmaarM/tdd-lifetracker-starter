@@ -8,8 +8,9 @@ Everywhere around us is data waiting to be collected and utilized. In recent yea
 
 This application will be built using the battle-tested PERN stack - PostgreSQL, Express, React, and Node.
 
-Week 1 of Project GIF: https://streamable.com/nudz0v
-Week 2 of Project GIF: https://streamable.com/jk4n8z
+- Week 1 of Project GIF: https://streamable.com/nudz0v
+- Week 2 of Project GIF: https://streamable.com/jk4n8z
+- Link to Heroku/Surge Site: https://lifetracker-amaar.surge.sh/
 
 ## Goals
 
