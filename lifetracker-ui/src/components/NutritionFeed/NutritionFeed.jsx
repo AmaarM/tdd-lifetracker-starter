@@ -23,5 +23,4 @@ export default function NutritionFeed(props){
     )
 }  
 
-return(<div>ehehe</div>)
 }

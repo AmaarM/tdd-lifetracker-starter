@@ -47,7 +47,7 @@ export default function ExerciseForm(){
                     <h4>Duration (In Minutes)</h4>
                     <input name="duration" type="number" value={duration} onChange={setParams} placeholder="Duration" className="input-fields" min={1}></input>
                 </div>
-                <Link to="/exercise"><button className="submit-button" onClick={handleExercisesOnSubmit}>Submit</button></Link>
+                <a href="/exercise"><button className="submit-button" onClick={handleExercisesOnSubmit}>Submit</button></a>
             </div>
         </div>
       )

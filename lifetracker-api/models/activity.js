@@ -2,6 +2,8 @@ const { BadRequestError, UnauthorizedError, NotFoundError } = require("../utils/
 const db = require("../db");
 const User = require("../models/user");
 const Nutrition = require("../models/nutrition");
+const Exercise  = require("../models/exercise");
+const { listExercisesForUser } = require("../models/exercise");
 
 
 class Activity {
@@ -57,6 +59,52 @@ class Activity {
         })
 
         return outputArr;
+    }
+
+    static async calculateAverageMinutesPerCategory(user){
+        //loop through exercise table and calculate average minute spent on each category.
+        const exercises = await listExercisesForUser(user.id);
+        let arr = [];
+
+        exercises.forEach(e => {
+            let index = arr.findIndex(element => e.category.toLowerCase() === element.category.toLowerCase());
+            if(index === -1){
+                let obj = {category: e.category.toLowerCase(), totalDurationPerDay: e.duration, count: 1};
+                arr.push(obj);
+            }
+            else{
+                arr[index].totalDurationPerDay += e.duration;
+                arr[index].count += 1;
+            }
+        })
+        let outputArr = [];
+        arr.forEach(e => {
+            let avgDurationPerCategory = e.totalDurationPerDay / e.count;
+            let obj = {category: e.category.toLowerCase(), avgDurationPerCategory:avgDurationPerCategory};
+            outputArr.push(obj);
+        })
+
+
+        return outputArr;
+    }
+
+    static async calculateTotalMinutesPerCategory(user){
+        //loop through exercise table and calculate total minute spent on each category.
+        const exercise = await listExercisesForUser(user.id);
+        let arr = [];
+
+        exercise.forEach(e => {
+            let index = arr.findIndex(element => e.category.toLowerCase() === element.category.toLowerCase())
+            if(index === -1){
+                let obj = {category: e.category, totalDurationPerCategory: e.duration};
+                arr.push(obj);
+            }
+            else{
+                arr[index].totalDurationPerCategory += e.duration;
+            }
+        })
+
+        return arr;
     }
 
 

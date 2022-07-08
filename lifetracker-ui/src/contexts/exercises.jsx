@@ -15,6 +15,7 @@ export const ExerciseContextProvider = ({ children }) => {
     const { user } = useAuthContext();
 
     React.useEffect(async () => {
+        setIsProcessing(true);
         try {
           const req = await axios.get("http://localhost:3001/exercise", {headers: {Authorization: `Bearer ${localStorage.getItem("lifetracker_token")}`}});
           setExercises(req.data.listExercises);
@@ -23,20 +24,19 @@ export const ExerciseContextProvider = ({ children }) => {
         }
         setIsProcessing(false);
         setInitial(true);
-      }, []);
+    }, []);
 
     
-      const logExercise = (data) => {
+    const logExercise = (data) => {
         let obj = {
-            name:data.name,
-            category:data.category,
+            name: data.name.trim().toLowerCase().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))),
+            category: data.category.trim().toLowerCase().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))),
             duration:data.duration,
             email: user.email
         }
         const req = async () => {
             try {
                 const getData = await axios.post("http://localhost:3001/exercise", obj);
-                console.log(getData);
                 setExercises(getData);
             }
             catch(err){
@@ -44,10 +44,15 @@ export const ExerciseContextProvider = ({ children }) => {
             }
         }
         req();
-        console.log(exercises)
     }
 
-    const exerciseValue = { exercises, initialized, setInitial, isProcessing, setIsProcessing, logExercise };
+    const reload = () => {
+        if(isLoading === false){
+            window.location.reload();
+        }
+    }
+
+    const exerciseValue = { exercises, initialized, setInitial, isProcessing, setIsProcessing, logExercise, reload };
 
     return (
         <ExerciseContext.Provider value={exerciseValue}>

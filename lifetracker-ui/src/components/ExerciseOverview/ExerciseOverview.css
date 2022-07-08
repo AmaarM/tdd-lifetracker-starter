@@ -9,3 +9,15 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
+.exerciseForm-nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+}
+
+.exercises-nothing{
+    text-align: center;
+    margin: 0px;
+}

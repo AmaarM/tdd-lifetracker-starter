@@ -5,15 +5,16 @@ import { Link } from "react-router-dom";
 import Loading from "components/Loading/Loading"
 import { useEffect, useState } from "react";
 import SleepForm from "components/SleepForm/SleepForm";
+import { useExerciseContext } from "../../contexts/exercises";
 
 export default function ActivityFeed(props){
-    const { activity, isLoading } = useActivityContext();
+    const { activity, isLoading, exerciseStats } = useActivityContext();
     const { isOpen, setIsOpen } = useState(false);
-    console.log(activity);
-
-if(Object.keys(activity).length > 0 && activity.totalPerDay.length > 0){
-    return (
     
+    console.log(exerciseStats);
+
+if(Object.keys(activity).length > 0 && exerciseStats != null){
+    return (
         <div className="activity-feed">
             <div className="actNav">
                 <div className="activity-nav-header">
@@ -31,7 +32,7 @@ if(Object.keys(activity).length > 0 && activity.totalPerDay.length > 0){
                         <SummaryStat totalCalories={activity.totalPerDay} string={"TotalCalories"}/>
                     </div>
                     <div className="box-1">
-                        <SummaryStat />
+                        <SummaryStat totalDuration={exerciseStats.totalMinPerCat} string={"TotalDuration"}/>
                     </div>   
                 </div>
                 <div className="second-row">
@@ -39,7 +40,7 @@ if(Object.keys(activity).length > 0 && activity.totalPerDay.length > 0){
                         <SummaryStat avgCalories={activity.totalPerCategory} string={"TotalPerCategory"}/>
                     </div>
                     <div className="box-1">
-                        <SummaryStat />
+                        <SummaryStat avgDuration={exerciseStats.avgMinPerCat} string={"AvgPerCategory"}/>
                     </div>   
                 </div>
             </div>

@@ -21,6 +21,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: opacity .15s;
+    border-radius: 5px;
 }
 .activity-btns:hover{
     opacity: .5;
@@ -45,10 +46,8 @@
 }
 
 .box-1{
-    border-style: solid;
-    border-color: black;
-    border-width: 4px;
     width: 800px;
     height: 200px;
     margin: 20px;
+    background-color: ghostwhite;
 }
