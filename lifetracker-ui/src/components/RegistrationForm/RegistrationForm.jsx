@@ -1,8 +1,6 @@
 import "./RegistrationForm.css"
-import { useState, useContext } from "react";
-import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
-import { Navigate } from "react-router-dom"
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useAuthContext } from "../../contexts/auth";
 
 export default function RegistrationForm() {
   const [email, setEmail] = useState("");

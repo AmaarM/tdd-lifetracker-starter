@@ -1,9 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import apiClient from "../services/apiClient";
-import { useAuthContext } from "../contexts/auth";
 import { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
 const ActivityContext = React.createContext(null);
 
 export const  ActivityContextProvider = ({ children }) => {
@@ -18,9 +16,7 @@ export const  ActivityContextProvider = ({ children }) => {
     React.useEffect(async () => {
         setIsLoading(true);
         try {
-            console.log(localStorage.getItem("lifetracker_token"))
             const req = await axios.get("http://localhost:3001/activity", {headers: {Authorization: `Bearer ${localStorage.getItem("lifetracker_token")}`}});
-            console.log(req.data)
             setActivity(req.data);
         }
         catch(err){
@@ -33,7 +29,7 @@ export const  ActivityContextProvider = ({ children }) => {
     React.useEffect(async () => {
         setIsLoading(true);
         try {
-            console.log(localStorage.getItem("lifetracker_token"))
+            
             const req = await axios.get("http://localhost:3001/activity/exercise", {headers: {Authorization: `Bearer ${localStorage.getItem("lifetracker_token")}`}});
             setExerciseStats(req.data);
         }
@@ -43,9 +39,6 @@ export const  ActivityContextProvider = ({ children }) => {
         setIsLoading(false);
         setInitial(true);
     },[])
-
-    console.log(exerciseStats);
-    console.log(activity);
 
     const reload = () => {
         if(isLoading === false){

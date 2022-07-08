@@ -1,5 +1,5 @@
 import "./LoginForm.css";
-import { AuthContextProvider, useAuthContext} from "../../contexts/auth"
+import { useAuthContext} from "../../contexts/auth"
 import { Navigate } from "react-router-dom";
 import React from "react";
 
@@ -9,8 +9,6 @@ export default function LoginForm(){
 
     const { user, setUser, loginUser, error } = useAuthContext();
 
-
-    console.log(user);
     function handleEmailForm(e){
         setEmail(e.target.value);
     }

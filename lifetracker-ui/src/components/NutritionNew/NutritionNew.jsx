@@ -1,4 +1,4 @@
-import { NutritionContextProvider, useNutritionContext } from "../../contexts/nutrition";
+import { useNutritionContext } from "../../contexts/nutrition";
 import NutritionForm from "components/NutritionForm/NutritionForm";
 
 

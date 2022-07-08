@@ -12,10 +12,8 @@ import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
 import { ActivityContextProvider } from "../../contexts/activity";
 import { NutritionContextProvider } from "../../contexts/nutrition"
 import { ExerciseContextProvider } from "../../contexts/exercises";
-import NutritionForm from "components/NutritionForm/NutritionForm";
 import NutritionNew from "components/NutritionNew/NutritionNew";
 import ExerciseForm from "components/ExerciseForm/ExerciseForm";
-import ExerciseNew from "components/ExerciseForm/ExerciseForm"
 import SleepForm from "components/SleepForm/SleepForm";
 import ExerciseOverview from "components/ExerciseOverview/ExerciseOverview";
 import SleepOverview from "components/SleepOverview/SleepOverview";

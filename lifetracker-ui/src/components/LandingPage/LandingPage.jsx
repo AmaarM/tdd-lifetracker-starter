@@ -4,7 +4,7 @@ import TilesIcon1 from "../assets/tiles-icon1.svg";
 import TilesIcon2 from "../assets/tiles-icon2.svg";
 import TilesIcon3 from "../assets/tiles-icon3.svg";
 import TilesIcon4 from "../assets/tiles-icon4.svg";
-import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
+import { useAuthContext } from "../../contexts/auth";
 import { Link } from "react-router-dom";
 
 export default function LandingPage(props) {

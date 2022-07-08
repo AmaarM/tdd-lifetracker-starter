@@ -1,12 +1,10 @@
 import "./NutritionOverview.css";
-import { AuthContextProvider ,useAuthContext } from "../../contexts/auth";
-import { NutritionContextProvider, useNutritionContext } from "../../contexts/nutrition";
+import { useNutritionContext } from "../../contexts/nutrition";
 import NutritionFeed from "components/NutritionFeed/NutritionFeed";
-import { Navigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function NutritionOverview(){
     const { nutrition, error, isInitialized, isProcessing, logNutrition } = useNutritionContext();
-    console.log(nutrition);
     
     if(error){
         return (

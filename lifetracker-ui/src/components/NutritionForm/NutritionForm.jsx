@@ -1,8 +1,6 @@
 import "./NutritionForm.css"
-import { AuthContextProvider, useAuthContext} from "../../contexts/auth";
-import { Navigate } from "react-router-dom";
+import { useAuthContext } from "../../contexts/auth";
 import React, { useState } from "react";
-import { NutritionContextProvider, useNutritionContext } from "../../contexts/nutrition";
 import { Link } from "react-router-dom";
 
 
@@ -14,8 +12,6 @@ export default function NutritionForm(props){
 
   const { user } = useAuthContext(); 
   
-
-
   function setParams(e){
     if(e.target.name === "name"){
       setName(e.target.value);

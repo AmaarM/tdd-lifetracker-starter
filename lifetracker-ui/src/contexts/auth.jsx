@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import apiClient from "../services/apiClient";
-import { Navigate } from "react-router-dom";
 
 const AuthContext = React.createContext(null);
 

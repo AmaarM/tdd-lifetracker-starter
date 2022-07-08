@@ -1,7 +1,6 @@
 import axios from "axios";
-import React, { useContext, createContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import apiClient from "../services/apiClient";
-import { Navigate } from "react-router-dom";
 import { useAuthContext } from "../contexts/auth";
 
 const ExerciseContext = React.createContext(null);

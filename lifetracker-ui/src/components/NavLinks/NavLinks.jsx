@@ -1,6 +1,6 @@
 import "./NavLinks.css";
 import { Link } from "react-router-dom"
-import { AuthContextProvider, useAuthContext} from "../../contexts/auth";
+import { useAuthContext} from "../../contexts/auth";
 
 export default function NavLinks(props){
 

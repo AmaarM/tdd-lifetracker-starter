@@ -1,8 +1,9 @@
 import "./ExerciseOverview.css";
 import { useExerciseContext } from "../../contexts/exercises";
-import Loading from "components/Loading/Loading";
 import ExerciseCard from "components/ExerciseCard/ExerciseCard";
 import { Link } from "react-router-dom";
+
+
 export default function ExerciseOverview(){
     const { exercises, initialized } = useExerciseContext();
     console.log(exercises);

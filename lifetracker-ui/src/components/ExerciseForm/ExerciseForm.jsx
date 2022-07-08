@@ -1,8 +1,6 @@
 import "./ExerciseForm.css";
 import { useState } from "react";
 import { useExerciseContext } from "../../contexts/exercises"
-import { Link } from "react-router-dom";
-
 
 export default function ExerciseForm(){
     const [exercise, setExercise] = useState("");

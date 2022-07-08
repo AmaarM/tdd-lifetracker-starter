@@ -2,8 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import apiClient from "../services/apiClient"
 import { useContext, createContext, useState, useEffect } from 'react';
-import { AuthContextProvider, useAuthContext} from "../contexts/auth";
-import { useParams } from 'react-router-dom';
+import { useAuthContext } from "../contexts/auth";
 
 
 const NutritionContext = createContext(null);
