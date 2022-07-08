@@ -8,7 +8,6 @@ const Exercise = require("../models/exercise");
 
 
 router.get("/", security.requireAuthenticatedUser, async (req,res,next) => {
-    console.log(res.locals.user);
     try {
         const { email } = res.locals.user;
         const user = await User.fetchUserByEmail(email);
@@ -22,7 +21,6 @@ router.get("/", security.requireAuthenticatedUser, async (req,res,next) => {
 
 
 router.post("/", async(req,res,next) => {
-    console.log(req.body);
     try{
         const makeExerciseEntry = await Exercise.makeExerciseEntry(req.body);
         const user = await User.fetchUserByEmail(req.body.email);

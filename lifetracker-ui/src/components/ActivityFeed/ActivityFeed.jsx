@@ -3,16 +3,20 @@ import SummaryStat from "components/SummaryStat/SummaryStat";
 import { useActivityContext } from "../../contexts/activity";
 import { Link } from "react-router-dom";
 import Loading from "components/Loading/Loading"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SleepForm from "components/SleepForm/SleepForm";
-import { useExerciseContext } from "../../contexts/exercises";
+
 
 export default function ActivityFeed(props){
-    const { activity, isLoading, exerciseStats } = useActivityContext();
+    const { activity, isLoading, exerciseStats, sleep, showSleep, setShowSleep } = useActivityContext();
     const { isOpen, setIsOpen } = useState(false);
     
-    console.log(exerciseStats);
-
+    function handleShowSleep(){
+        let show = !showSleep;
+        setShowSleep(show);
+        setShowSleepActivity(show);
+    }
+console.log(showSleep);
 if(Object.keys(activity).length > 0 && exerciseStats != null){
     return (
         <div className="activity-feed">
@@ -46,11 +50,11 @@ if(Object.keys(activity).length > 0 && exerciseStats != null){
             </div>
             <div className="sleep">
                 <div className="sleep-box">
-                    <SleepForm />
+                    {showSleep ? <button className="log-sleep" onClick={handleShowSleep}>Log Sleep</button> : ""}
+                    {showSleep ? <SummaryStat sleep={sleep} string={"Sleep"}/> : <SleepForm />}
                 </div>
             </div> 
         </div>
-    
     )
 }
 else{

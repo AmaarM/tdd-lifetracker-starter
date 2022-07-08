@@ -21,7 +21,6 @@ router.get("/", security.requireAuthenticatedUser, async (req,res,next) => {
 router.get("/:nutritionId", async (req,res,next) => {
     try{
         const id = req.params.nutritionId;
-        console.log(id);
         const nutritionItem = await Nutrition.fetchNutritionById(id);
         res.status(200).json({ nutritionItem })
     }
@@ -35,7 +34,6 @@ router.post("/", async (req,res,next) => {
     try {
         const makeNutrition = await Nutrition.createNutrition(req.body.data);
         const user = await User.fetchUserByEmail(req.body.data.email);
-        console.log(user);
         const nutrition = await Nutrition.listNutritionForUser(user.id);
         return res.status(200).json({ nutrition });
     }

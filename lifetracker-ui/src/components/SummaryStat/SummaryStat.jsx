@@ -45,6 +45,16 @@ if(props.string === "AvgPerCategory" && props.avgDuration.length > 0){
     </div>
   )
 }
+
+if(props.string === "Sleep"){
+  return(   
+    <div className="summary-stat">
+        <h3 className="stat-label">Total Hours Slept</h3>
+        <h3 className="primary-statistic">{props.sleep}</h3>
+    </div>
+  )
+}
+
   
 return (
       <div className="summary-stat">

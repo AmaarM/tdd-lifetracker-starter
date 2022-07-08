@@ -18,6 +18,7 @@ import ExerciseForm from "components/ExerciseForm/ExerciseForm";
 import ExerciseNew from "components/ExerciseForm/ExerciseForm"
 import SleepForm from "components/SleepForm/SleepForm";
 import ExerciseOverview from "components/ExerciseOverview/ExerciseOverview";
+import SleepOverview from "components/SleepOverview/SleepOverview";
 
 export default function AppContainer(){
   return (
@@ -50,6 +51,8 @@ function App() {
                 <Route path="/nutrition/create" element={<NutritionNew />}></Route>
                 <Route path="/exercise" element={<ExerciseOverview />}></Route>
                 <Route path="/exercise/create" element={<ExerciseForm />}></Route>
+                <Route path="/sleep" element={<SleepOverview />}></Route>
+                <Route path="/sleep/create" element={<SleepForm />}></Route>
                 <Route path="*" element={<NotFound />}></Route>
                 </Routes>
         </BrowserRouter>

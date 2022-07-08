@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import apiClient from "../services/apiClient"
 import { useContext, createContext, useState, useEffect } from 'react';
-import { AuthContextProvider, useAuthContext} from "/Users/amaar/siteProjects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/auth";
+import { AuthContextProvider, useAuthContext} from "../contexts/auth";
 import { useParams } from 'react-router-dom';
 
 

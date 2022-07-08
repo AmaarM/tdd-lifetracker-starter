@@ -25,7 +25,8 @@ export default function ExerciseOverview(){
         return(
            <div className="exercises-nothing">
                 <h2 className="nothing-title">Exercises</h2>
-                <Loading />
+                <h2>Needs Info, Log Your Exercises</h2>
+                <Link to="/exercise/create"><button className="activity-btns">Record Nutrition</button></Link>
             </div> 
         )
     }

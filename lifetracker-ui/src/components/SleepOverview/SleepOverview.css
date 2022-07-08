@@ -1,0 +1,26 @@
+.sleep-overview{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.sleep-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.sleep-content{
+    background-color: ghostwhite;
+    margin-top: 25px;
+    width: 40vw;
+    height: 400px;
+    text-align: center;
+    align-self: center;
+}
+
+.sleep-title{
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 4px;
+}

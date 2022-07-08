@@ -2,6 +2,7 @@ import "./RegistrationForm.css"
 import { useState, useContext } from "react";
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
 import { Navigate } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default function RegistrationForm() {
   const [email, setEmail] = useState("");
@@ -62,11 +63,3 @@ export default function RegistrationForm() {
     </div>
   );
 }
-
-/* 
-<input className="form-input" name="email" type="email"></input>
-<input className="form-input" name="username" type="text"></input>
-<input className="form-input" name="firstName" type="text"></input>
-<input className="form-input" name="lastName" type="text"></input>
-<input className="form-input" name="password" type="text"></input>
-<input className="form-input" name="passwordConfirm" type="text"></input> */

@@ -1,8 +1,7 @@
 import "./ActivityPage.css";
-import { ActivityContextProvider, useActivityContext } from "../../contexts/activity";
-import Loading from "components/Loading/Loading";
+import { useActivityContext } from "../../contexts/activity";
 import ActivityFeed from "components/ActivityFeed/ActivityFeed";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 
 export default function ActivityPage(props){ 

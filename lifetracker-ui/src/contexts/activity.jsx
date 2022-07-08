@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
-import apiClient from "../services/apiClient"
-import { useAuthContext } from '/users/amaar/siteprojects/tdd-lifetracker-starter/lifetracker-ui/src/contexts/auth';
+import apiClient from "../services/apiClient";
+import { useAuthContext } from "../contexts/auth";
 import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 const ActivityContext = React.createContext(null);
@@ -12,6 +12,8 @@ export const  ActivityContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [error, setError] = React.useState(null);
     const [exerciseStats, setExerciseStats] = React.useState(null);
+    const [showSleep, setShowSleep] = React.useState(true);
+    const [sleep, logSleep] = React.useState(0);
     
     React.useEffect(async () => {
         setIsLoading(true);
@@ -51,7 +53,7 @@ export const  ActivityContextProvider = ({ children }) => {
         }
     }
 
-    const activityValue = {activity, setActivity, isLoading, setIsLoading, initialized, setInitial, reload, exerciseStats };
+    const activityValue = {activity, setActivity, isLoading, setIsLoading, initialized, setInitial, reload, exerciseStats, showSleep, setShowSleep, sleep, logSleep };
     return (
         <ActivityContext.Provider value={activityValue}>
             {children}

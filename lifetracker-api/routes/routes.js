@@ -30,7 +30,6 @@ router.post("/register", async(req,res,next) => {
 router.get(("/me"), security.requireAuthenticatedUser, async(req,res,next) => {
     try {
         const { email } = res.locals.user;
-        console.log(email);
         const user = await User.fetchUserByEmail(email);
         const publicUser = {id: user.id, email: user.email, first_name: user.first_name, last_name: user.last_name}
         return res.status(200).json({ user: user })

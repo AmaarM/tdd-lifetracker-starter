@@ -14,7 +14,7 @@ export default function NavLinks(props){
                     <Link to="/activity" className="link">Activity</Link>
                     <Link to="/nutrition" className="link">Nutrition</Link>
                     <Link to="/exercise" className="link">Exercise</Link>
-                    <Link to="/" className="link">Sleep</Link>
+                    <Link to="/sleep" className="link">Sleep</Link>
                 </div>
                 <div className="Buttons-logged-in">
                     <h1 className="hello" >Hello {capitalizedName}</h1>
