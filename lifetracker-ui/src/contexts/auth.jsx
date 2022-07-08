@@ -16,7 +16,6 @@ export const AuthContextProvider = ({ children }) => {
     }
     try {
       const req = await axios.get("http://localhost:3001/auth/me", {headers: {Authorization: `Bearer ${localStorage.getItem("lifetracker_token")}`}});
-      console.log(req);
       setUser(req.data.user);
       setError(null);
     } catch (err) {
@@ -35,7 +34,6 @@ const loginUser = (email,password) => {
           email: email,
           password: password,
         });
-        console.log(getData);
         localStorage.setItem("lifetracker_token", getData.data.token);
         setUser(getData.data.user);
       } catch (err) {
@@ -60,7 +58,6 @@ const signUpUser = async (data) => {
         });
         setUser(getData.data.user);
         localStorage.setItem("lifetracker_token", getData.data.token);
-        console.log(getData);
       } catch (err) {
         console.log(err);
       }
@@ -74,7 +71,7 @@ const signUpUser = async (data) => {
   }
 
 
-
+  
   const authValue = { user, setUser, loginUser, signUpUser, logOutUser, error };
 
   return (

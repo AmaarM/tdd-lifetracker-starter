@@ -6,7 +6,7 @@ const ActivityContext = React.createContext(null);
 
 export const  ActivityContextProvider = ({ children }) => {
     const [activity, setActivity] = React.useState({});
-    const [initialized,setInitial] = React.useState(false);
+    const [initialized, setInitial] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(true);
     const [error, setError] = React.useState(null);
     const [exerciseStats, setExerciseStats] = React.useState(null);
@@ -29,7 +29,6 @@ export const  ActivityContextProvider = ({ children }) => {
     React.useEffect(async () => {
         setIsLoading(true);
         try {
-            
             const req = await axios.get("http://localhost:3001/activity/exercise", {headers: {Authorization: `Bearer ${localStorage.getItem("lifetracker_token")}`}});
             setExerciseStats(req.data);
         }
@@ -39,7 +38,7 @@ export const  ActivityContextProvider = ({ children }) => {
         setIsLoading(false);
         setInitial(true);
     },[])
-
+    
     const reload = () => {
         if(isLoading === false){
             window.location.reload();
