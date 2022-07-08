@@ -4,20 +4,24 @@ import { useActivityContext } from "../../contexts/activity";
 import { Link } from "react-router-dom";
 import Loading from "components/Loading/Loading"
 import { useEffect, useState } from "react";
+import SleepForm from "components/SleepForm/SleepForm";
 
 export default function ActivityFeed(props){
     const { activity, isLoading } = useActivityContext();
+    const { isOpen, setIsOpen } = useState(false);
+    console.log(activity);
 
-if(Object.keys(activity).length > 0){
+if(Object.keys(activity).length > 0 && activity.totalPerDay.length > 0){
     return (
+    
         <div className="activity-feed">
             <div className="actNav">
                 <div className="activity-nav-header">
                     <h3 className="activity-title">Activity Feed</h3>
                 </div>
                 <div className="activity-nav-btns">
-                    <button className="activity-btns">Add Exercise</button>
-                    <button className="activity-btns">Log Sleep</button>
+                    <Link to="/exercise/create"><button className="activity-btns">Add Exercise</button></Link>
+                    <Link to="/sleep/create"><button className="activity-btns">Log Sleep</button></Link>
                     <Link to="/nutrition/create"><button className="activity-btns">Record Nutrition</button></Link>
                 </div>
             </div>
@@ -28,30 +32,31 @@ if(Object.keys(activity).length > 0){
                     </div>
                     <div className="box-1">
                         <SummaryStat />
-                    </div>
-                    <div className="box-1">
-                        <SummaryStat />
-                    </div>      
+                    </div>   
                 </div>
                 <div className="second-row">
                     <div className="box-1">
-                        <SummaryStat />
+                        <SummaryStat avgCalories={activity.totalPerCategory} string={"TotalPerCategory"}/>
                     </div>
                     <div className="box-1">
                         <SummaryStat />
-                    </div>
-                    <div className="box-1">
-                        <SummaryStat />
-                    </div>     
+                    </div>   
                 </div>
             </div>
+            <div className="sleep">
+                <div className="sleep-box">
+                    <SleepForm />
+                </div>
+            </div> 
         </div>
+    
     )
 }
 else{
    return(
     <div>
         <Loading />
+        <Link to="/nutrition/create"><button className="activity-btns">Record Nutrition</button></Link>
     </div>
    )
 } 

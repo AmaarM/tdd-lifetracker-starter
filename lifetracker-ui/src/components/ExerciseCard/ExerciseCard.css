@@ -1,0 +1,35 @@
+.exercise-card{
+    width: 360px;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px 32px;
+    margin: 50px;
+}
+
+.exercise-card-wrapper{
+    background-color: ghostwhite;
+    transition: box-shadow .15s;
+    cursor: pointer;
+}
+.exercise-card-wrapper:hover{
+    box-shadow: 10px 10px 5px rgba(0,0,0,.5);
+}
+
+.card-stats{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 30px;
+}
+
+.stats-title{
+    margin:0px;
+}
+
+.duration, .category{
+    margin: 5px;
+}
+

@@ -18,3 +18,12 @@ image_url   TEXT NOT NULL,
 user_id     INTEGER NOT NULL,
 created_at  TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE exercise (
+id          SERIAL PRIMARY KEY,
+name        TEXT NOT NULL,
+category    TEXT NOT NULL,
+duration    INTEGER NOT NULL,
+user_id     INTEGER NOT NULL,
+created_at  TIMESTAMP NOT NULL DEFAULT NOW()
+)

@@ -13,8 +13,8 @@ export default function NavLinks(props){
                 <div className="Links">
                     <Link to="/activity" className="link">Activity</Link>
                     <Link to="/nutrition" className="link">Nutrition</Link>
-                    <Link to="/" className="link">PlaceHolder</Link>
-                    <Link to="/" className="link">PlaceHolder</Link>
+                    <Link to="/exercise" className="link">Exercise</Link>
+                    <Link to="/" className="link">Sleep</Link>
                 </div>
                 <div className="Buttons-logged-in">
                     <h1 className="hello" >Hello {capitalizedName}</h1>
@@ -29,8 +29,8 @@ export default function NavLinks(props){
                 <div className="Links">
                     <Link to="/NotFound" className="link">Activity</Link>
                     <Link to="/NotFound" className="link">Nutrition</Link>
-                    <Link to="/NotFound" className="link">PlaceHolder</Link>
-                    <Link to="/NotFound" className="link">PlaceHolder</Link>
+                    <Link to="/NotFound" className="link">Exercise</Link>
+                    <Link to="/NotFound" className="link">Sleep</Link>
                 </div>
                 <div className="Buttons">
                     <Link to="/login"><button className={Object.keys(user) > 0 ? "hidden" : "logout-button"}>Login</button></Link>

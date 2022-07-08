@@ -11,6 +11,7 @@ export const  ActivityContextProvider = ({ children }) => {
     const [initialized,setInitial] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(true);
     const [error, setError] = React.useState(null);
+    const [exerciseStats, setExerciseStats] = React.useState(null);
     
     React.useEffect(async () => {
         setIsLoading(true);

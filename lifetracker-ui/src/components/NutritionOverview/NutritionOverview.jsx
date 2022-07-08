@@ -26,6 +26,3 @@ export default function NutritionOverview(){
     )
 
 }
-
-
-//onClick={() => <Navigate to="/"/>}

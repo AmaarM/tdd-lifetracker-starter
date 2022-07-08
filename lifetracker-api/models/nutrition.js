@@ -37,7 +37,6 @@ class Nutrition {
     }
     }
 
-
     static async fetchNutritionById(id){
         if(!id){
             throw new BadRequestError("Need Valid Id");

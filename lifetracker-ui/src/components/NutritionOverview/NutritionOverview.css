@@ -4,6 +4,7 @@
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
+    min-width: 30vw;
 }
 
 .nutrition-title{

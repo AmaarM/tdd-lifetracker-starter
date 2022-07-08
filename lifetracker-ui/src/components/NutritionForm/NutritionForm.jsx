@@ -48,7 +48,7 @@ export default function NutritionForm(props){
       </div>
       <div className="input-field">
         <h4 className="title1">Calories</h4>
-        <input className="form-input" name="calories" type="text" value={calories} onChange={setParams}></input>
+        <input className="form-input" name="calories" type="number" value={calories} onChange={setParams} min={1}></input>
       </div>
       <div className="input-field">
         <h4 className="title1">Image</h4>

@@ -7,9 +7,9 @@ import { useEffect, useState } from 'react';
 
 export default function ActivityPage(props){ 
     const { isLoading, setIsLoading, reload } = useActivityContext();
+    
     //Fixes bug where page wont reload after logging in.
     useEffect(() => {
-        console.log("test")
         reload();
     },[])
 

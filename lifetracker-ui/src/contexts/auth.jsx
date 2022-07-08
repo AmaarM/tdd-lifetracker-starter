@@ -10,6 +10,7 @@ export const AuthContextProvider = ({ children }) => {
   const [initialized, setInitial] = React.useState(false);
   const [isProcessing, setIsProcessing] = React.useState(false);
   const [error, setError] = React.useState("");
+  const [sleep, logSleep] = React.useState(0);
 
   React.useEffect(async () => {
     if(localStorage.getItem("lifetracker_token")){
@@ -45,7 +46,6 @@ const loginUser = (email,password) => {
       }
     };
     req();
-
   }
 
 const signUpUser = async (data) => {
@@ -77,7 +77,7 @@ const signUpUser = async (data) => {
 
 
 
-  const authValue = { user, setUser, loginUser, signUpUser, logOutUser, error };
+  const authValue = { user, setUser, loginUser, signUpUser, logOutUser, error, sleep, logSleep };
 
   return (
     <AuthContext.Provider value={authValue}>

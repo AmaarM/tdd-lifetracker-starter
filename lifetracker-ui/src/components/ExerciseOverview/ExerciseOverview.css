@@ -1,0 +1,11 @@
+.exercise-overview{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.exercises-feed{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
