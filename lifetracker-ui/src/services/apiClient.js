@@ -1,6 +1,9 @@
 import axios from "axios"
 import React from "react";
- 
+import constants from "constants";
+
+console.log(constants);
+
 class ApiClient {
     constructor(remoteHostUrl){
         this.remoteHostUrl = remoteHostUrl;
@@ -82,4 +85,5 @@ class ApiClient {
 } 
 
 
-export default new ApiClient("http://localhost:3001");
+export default new ApiClient("https://lifetracker-site-amaar.herokuapp.com");
+

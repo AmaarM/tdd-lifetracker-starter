@@ -22,7 +22,7 @@ router.post("/register", async(req,res,next) => {
         return res.status(200).json({ user, token });
     }  
     catch(err){
-       next(err);
+        next(err);
     }
 })
 
