@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import apiClient from "../services/apiClient"
+import ApiClient from "../services/apiClient"
 import { useContext, createContext, useState, useEffect } from 'react';
 import { useAuthContext } from "../contexts/auth";
 
@@ -14,14 +14,15 @@ export const NutritionContextProvider = ({ children }) => {
     const [error, setError] = React.useState(null);
 
     const { user } = useAuthContext();
-    console.log(user.email)
+    
 
     useEffect(async () => {
         setIsProcessing(true);
+        if(localStorage.getItem("lifetracker_token")){
+            ApiClient.setToken(localStorage.getItem("lifetracker_token"));
+        }
         try {
-            console.log(localStorage.getItem("lifetracker_token"))
-            const req = await axios.get("http://localhost:3001/nutrition", {headers: {Authorization: `Bearer ${localStorage.getItem("lifetracker_token")}`}});
-            console.log(req.data)
+            const req = await ApiClient.getNutrition();
             setNutrition(req.data);
         }
         catch(err){
@@ -31,10 +32,9 @@ export const NutritionContextProvider = ({ children }) => {
         setInitial(true);
     },[])
 
-    console.log(nutrition);
+   
     
     const logNutrition = (data) => {
-        console.log(data);
         let obj = {
             name:data.name,
             category:data.category,
@@ -44,8 +44,7 @@ export const NutritionContextProvider = ({ children }) => {
         }
         const req = async () => {
             try{
-                const getData = await axios.post("http://localhost:3001/nutrition", {data:obj})
-                console.log(getData.data.nutrition);
+                const getData = await ApiClient.logNutrition(obj)
                 setNutrition(getData.data)
             }
             catch(err){

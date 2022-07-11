@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext } from "react";
-import apiClient from "../services/apiClient";
+import ApiClient from "../services/apiClient";
 import { useAuthContext } from "../contexts/auth";
 
 const ExerciseContext = React.createContext(null);
@@ -15,8 +15,11 @@ export const ExerciseContextProvider = ({ children }) => {
 
     React.useEffect(async () => {
         setIsProcessing(true);
+        if(localStorage.getItem("lifetracker_token")){
+            ApiClient.setToken(localStorage.getItem("lifetracker_token"));
+          }
         try {
-          const req = await axios.get("http://localhost:3001/exercise", {headers: {Authorization: `Bearer ${localStorage.getItem("lifetracker_token")}`}});
+          const req = await ApiClient.getExercises();
           setExercises(req.data.listExercises);
         } catch (err) {
           setError("");
@@ -35,7 +38,7 @@ export const ExerciseContextProvider = ({ children }) => {
         }
         const req = async () => {
             try {
-                const getData = await axios.post("http://localhost:3001/exercise", obj);
+                const getData = await ApiClient.logExercises(obj);
                 setExercises(getData);
             }
             catch(err){
