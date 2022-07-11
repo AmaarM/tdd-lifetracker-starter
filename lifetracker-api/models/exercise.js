@@ -41,7 +41,6 @@ class Exercise{
 
         const query = `SELECT * FROM exercise WHERE user_id = $1`;
         const result = await db.query(query, [id]);
-        console.log(result);
         const exercises = result.rows;
         return exercises;
     }

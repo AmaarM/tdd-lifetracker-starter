@@ -16,7 +16,6 @@ class Activity {
         //If the date isnt in the array, add it in the correct format, 
         //If the date is in the array, update the total calories for that entry and repeat.
         nutrition.forEach(e => {
-            console.log(e.created_at.toDateString());
             let index = arr.findIndex(element => e.created_at.toDateString() === element.date)
             if(index === -1){
                 let obj = {date: e.created_at.toDateString(), totalCaloriesPerDay: e.calories};

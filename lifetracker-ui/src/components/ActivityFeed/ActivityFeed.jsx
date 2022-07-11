@@ -8,15 +8,20 @@ import SleepForm from "components/SleepForm/SleepForm";
 
 
 export default function ActivityFeed(props){
-    const { activity, isLoading, exerciseStats, sleep, showSleep, setShowSleep } = useActivityContext();
+    const { activity, isLoading, exerciseStats, sleep, showSleep, setShowSleep, reload } = useActivityContext();
     const { isOpen, setIsOpen } = useState(false);
     
-    function handleShowSleep(){
+    function handleShowSleep(){ 
         let show = !showSleep;
         setShowSleep(show);
-        setShowSleepActivity(show);
+        
     }
-console.log(showSleep);
+
+    if(activity === undefined || activity === null){
+        reload();
+    }
+
+
 if(Object.keys(activity).length > 0 && exerciseStats != null){
     return (
         <div className="activity-feed">
@@ -55,7 +60,7 @@ if(Object.keys(activity).length > 0 && exerciseStats != null){
                 </div>
             </div> 
         </div>
-    )
+    )   
 }
 else{
    return(

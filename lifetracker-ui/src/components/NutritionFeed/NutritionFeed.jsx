@@ -3,8 +3,6 @@ import "./NutritionFeed.css"
 import NutritionCard from "components/NutritionCard/NutritionCard";
 
 export default function NutritionFeed(props){
-      //const { nutrition } = useNutritionContext();
-    console.log(props.nutrition);
      if(Object.keys(props.nutrition) <= 0){
         return (
         <div className="nutrition-feed">

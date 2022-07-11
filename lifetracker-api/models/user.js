@@ -5,7 +5,6 @@ const db = require("../db");
 
 class User{
     static async makePublicUser(user){
-        console.log(user.id);
         const publicUser = {
             id: user.id,
             email: user.email,

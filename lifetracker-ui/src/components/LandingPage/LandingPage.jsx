@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 export default function LandingPage(props) {
   const { user } = useAuthContext();
-  console.log(user);
 
   return (
     <div className="landing-page">

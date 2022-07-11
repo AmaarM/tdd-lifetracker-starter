@@ -2,6 +2,7 @@ import "./LoginForm.css";
 import { useAuthContext} from "../../contexts/auth"
 import { Navigate } from "react-router-dom";
 import React from "react";
+import ApiClient from "../../services/apiClient";
 
 export default function LoginForm(){
     const [email, setEmail] = React.useState("");
@@ -20,7 +21,6 @@ export default function LoginForm(){
     function handleLoginSubmit(){
         loginUser(email,password);
     }
-    console.log(error);
 
  if(user.id > 0) {
     return (

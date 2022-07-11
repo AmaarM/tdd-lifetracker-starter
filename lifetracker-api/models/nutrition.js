@@ -6,7 +6,6 @@ const User = require("../models/user");
 class Nutrition {
     static async createNutrition(data){
         const requiredFields = ["name", "category", "calories", "image_url", "email"];
-        console.log(data);
         requiredFields.forEach((element) => {
             if(!data.hasOwnProperty(element)){
                 throw new BadRequestError(`Missing ${element} in request body`)
@@ -44,7 +43,6 @@ class Nutrition {
 
         const query = `SELECT * FROM nutrition WHERE id = $1`
         const result = await db.query(query, [id]);
-        console.log(result);
         if(result.rows.length <= 0){
             throw new NotFoundError("ID Not Found");
         }
