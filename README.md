@@ -10,7 +10,7 @@ This application will be built using the battle-tested PERN stack - PostgreSQL, 
 
 - Week 1 of Project GIF: https://streamable.com/nudz0v
 - Week 2 of Project GIF: https://streamable.com/jk4n8z
-- Link to Heroku/Surge Site: https://lifetracker-amaar.surge.sh/
+- Link to Heroku/Surge Site: https://lifetracker-amaar-site.surge.sh/
 
 ## Goals
 
